@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dacortes <dacortes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 09:58:51 by dacortes          #+#    #+#             */
-/*   Updated: 2024/04/18 15:32:48 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/04/18 13:02:12 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,25 +26,26 @@
 /*                            CLASS                                           */
 /******************************************************************************/
 
-template <typename T>
-void swap(T &x, T &y)
+template <typename T, typename Func>
+void iter(T *array, size_t len, Func f)
 {
-	T tmp;
-
-	tmp = x;
-	x = y;
-	y = tmp;
+	if (array == NULL)
+		return ;
+	for (size_t i = 0; i < len; i++)
+		f(array[i]);
+}
+template <typename T>
+void iter(T *array, size_t len, void (*f)(const T&))
+{
+	if (array == NULL)
+		return ;
+	for (size_t i = 0; i < len; i++)
+		f(array[i]);
 }
 
 template <typename T>
-T max(T &x, T &y)
+void	funcPrint(const T &element)
 {
-	return ((x > y) ? x:y);
-}
-
-template <typename T>
-T min(T &x, T &y)
-{
-	return ((x < y) ? x:y);
+	std::cout << "pos: " << element << std::endl;
 }
 #endif
