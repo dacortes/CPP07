@@ -1,0 +1,7 @@
+*.o
+.vscode
+*.d
+obj
+*.swp
+.DS_*
+._.*
