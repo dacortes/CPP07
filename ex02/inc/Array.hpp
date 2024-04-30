@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:38:18 by dacortes          #+#    #+#             */
-/*   Updated: 2024/04/30 15:25:14 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/04/30 15:47:02 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <cerrno>
 # include <cstdlib>
 # include <iostream>
+# include <ctime>
 
 /******************************************************************************/
 /*                            COLORS                                          */
@@ -134,16 +135,5 @@ class Array
 				}
 				~ErrorArray(void) _NOEXCEPT{}
 		};
-		// class ErrorArray: public std::exception
-		// {
-		// 	private:
-		// 		std::string _msgError;
-		// 	public:
-		// 		ErrorArray(const std::string& msg) throw(): _msgError(msg){}
-		// 		virtual const char *what() const throw()
-		// 		{
-		// 			return (_msgError.c_str());
-		// 		}
-		// };
 };
 #endif
