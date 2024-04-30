@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:38:18 by dacortes          #+#    #+#             */
-/*   Updated: 2024/04/30 15:15:58 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/04/30 15:25:14 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,10 @@ class Array
 		T& operator[](int n)
 		{
 			if (this->_array == NULL and (!n or n > 0 or n < 0))
+			{
 				throw ErrorArray(std::string(ERROR) + std::string(ERROR_SF));
+				
+			}
 			else if (this->_array && (n < 0 or n >= static_cast<int>(this->_size)))
 				throw ErrorArray(std::string(ERROR) + std::string(ERROR_INDEX));
 			return (this->_array[n]);
@@ -121,15 +124,15 @@ class Array
 		}
 		class ErrorArray: public std::exception
 		{
+			private:
+				std::string _msgError;
 			public:
-				ErrorArray(const std::string& msg) throw()
-				{
-        			std::cerr << msg;
-				}
+				ErrorArray(const std::string& msg): _msgError(msg){}
 				virtual const char *what() const throw()
 				{
-					return ("");
+					return (_msgError.c_str());
 				}
+				~ErrorArray(void) _NOEXCEPT{}
 		};
 		// class ErrorArray: public std::exception
 		// {
