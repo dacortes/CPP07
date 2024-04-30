@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:38:18 by dacortes          #+#    #+#             */
-/*   Updated: 2024/04/30 10:58:10 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/04/30 15:15:58 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,35 +105,42 @@ class Array
 		}
 		T& operator[](int n)
 		{
-			if (this->_array == NULL and (n >= 0 or n <= 0))
+			if (this->_array == NULL and (!n or n > 0 or n < 0))
 				throw ErrorArray(std::string(ERROR) + std::string(ERROR_SF));
 			else if (this->_array && (n < 0 or n >= static_cast<int>(this->_size)))
 				throw ErrorArray(std::string(ERROR) + std::string(ERROR_INDEX));
 			return (this->_array[n]);
-			// if (this->_array == NULL and (n >= 0 or n <= 0))
-			// 	throw ErrorArray();
-			// else if (this->_array && (n < 0 or n >= static_cast<int>(this->_size)))
-			// 	throw ErrorArray();
+		}
+		const T& operator[](int n) const
+		{
+			if (this->_array == NULL and (!n or n > 0 or n < 0))
+				throw ErrorArray(std::string(ERROR) + std::string(ERROR_SF));
+			else if (this->_array && (n < 0 or n >= static_cast<int>(this->_size)))
+				throw ErrorArray(std::string(ERROR) + std::string(ERROR_INDEX));
 			return (this->_array[n]);
 		}
-		// const T& operator[](int n) const
-		// {
-		// 	if (this->_array == NULL and (n >= 0 or n <= 0))
-		// 		throw ErrorArray(std::string(ERROR) + std::string(ERROR_SF));
-		// 	else if (this->_array && (n < 0 or n >= static_cast<int>(this->_size)))
-		// 		throw ErrorArray(std::string(ERROR) + std::string(ERROR_INDEX));
-		// 	return (this->_array[n]);
-		// }
 		class ErrorArray: public std::exception
 		{
-			private:
-				std::string _msgError;
 			public:
-				ErrorArray(const std::string& msg) throw(): _msgError(msg){}
+				ErrorArray(const std::string& msg) throw()
+				{
+        			std::cerr << msg;
+				}
 				virtual const char *what() const throw()
 				{
-					return (_msgError.c_str());
+					return ("");
 				}
 		};
+		// class ErrorArray: public std::exception
+		// {
+		// 	private:
+		// 		std::string _msgError;
+		// 	public:
+		// 		ErrorArray(const std::string& msg) throw(): _msgError(msg){}
+		// 		virtual const char *what() const throw()
+		// 		{
+		// 			return (_msgError.c_str());
+		// 		}
+		// };
 };
 #endif
