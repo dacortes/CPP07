@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dacortes <dacortes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:38:18 by dacortes          #+#    #+#             */
-/*   Updated: 2024/04/30 15:47:02 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/04/30 14:04:32 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,7 @@ class Array
 				{
 					return (_msgError.c_str());
 				}
-				~ErrorArray(void) _NOEXCEPT{}
+				~ErrorArray(void) throw(){}
 		};
 };
 #endif
