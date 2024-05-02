@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:38:18 by dacortes          #+#    #+#             */
-/*   Updated: 2024/04/30 14:04:32 by codespace        ###   ########.fr       */
+/*   Updated: 2024/05/02 08:35:23 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ class Array
 		~Array(void)
 		{
 			std::cout << "Destructor called" << std::endl;
-			if (this->_array)
+			if (this->_array && this->_size)
 				delete [] this->_array;
 		}
 		/*
@@ -106,20 +106,13 @@ class Array
 		}
 		T& operator[](int n)
 		{
-			if (this->_array == NULL and (!n or n > 0 or n < 0))
-			{
-				throw ErrorArray(std::string(ERROR) + std::string(ERROR_SF));
-				
-			}
-			else if (this->_array && (n < 0 or n >= static_cast<int>(this->_size)))
+			if (this->_array && (n < 0 or n >= static_cast<int>(this->_size)))
 				throw ErrorArray(std::string(ERROR) + std::string(ERROR_INDEX));
 			return (this->_array[n]);
 		}
 		const T& operator[](int n) const
 		{
-			if (this->_array == NULL and (!n or n > 0 or n < 0))
-				throw ErrorArray(std::string(ERROR) + std::string(ERROR_SF));
-			else if (this->_array && (n < 0 or n >= static_cast<int>(this->_size)))
+			if (this->_array && (n < 0 or n >= static_cast<int>(this->_size)))
 				throw ErrorArray(std::string(ERROR) + std::string(ERROR_INDEX));
 			return (this->_array[n]);
 		}

@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:36:52 by dacortes          #+#    #+#             */
-/*   Updated: 2024/04/30 15:48:01 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/05/02 08:36:39 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,23 @@ int main(int, char**)
     for (int i = 0; i < 50 ; i++)
         std::cout << new_to_copy[i] << std::endl;
     std::cout << "Finished priting after deleting test" << std::endl;
+	Array<int> foo(0);
+	try
+	{
+		std::cout << foo[0] << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	Array<int> fuu;
+	try
+	{
+		std::cout << &fuu << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
     return (EXIT_SUCCESS);
 }
