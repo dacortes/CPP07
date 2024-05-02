@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:02:26 by dacortes          #+#    #+#             */
-/*   Updated: 2024/04/18 15:33:22 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/05/02 08:26:58 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int main (void)
 	std::string arrayString[] = {"foo", "fuu", "fui", "fiu"};
 	size_t sizeArrayInt = sizeof(arrayInt) / SIZE_INT;
 	size_t sizeArrayString = sizeof(arrayString) / SIZE_STRING;
+	std::cout << "sizestring: " << sizeArrayString << std::endl;
 	std::cout << O << "Test Array Int" << E << std::endl;
 	::iter(arrayInt, sizeArrayInt, ::funcPrint<int>);
 	std::cout << O << "Test Array string" << E << std::endl;
